@@ -34,6 +34,14 @@ class TrackDetailView: UIView {
         trackNameLabel.text = item.trackName
         artistNameLabel.text = item.artistName
         playTrack(previewUrl: item.previewUrl)
+        DispatchQueue.main.async {
+            let artworkUrl600 = item.artworkUrl100?.replacingOccurrences(of: "100x100", with: "600x600")
+            if let url = URL(string: artworkUrl600!) {
+            if let data = try? Data(contentsOf: url) {
+                self.trackImageView.image = UIImage(data: data)
+            }
+        }
+        }
     }
     
     private func playTrack(previewUrl: String?) {

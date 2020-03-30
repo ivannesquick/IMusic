@@ -25,5 +25,12 @@ class TrackCell: UITableViewCell {
         trackNameLabel.text = item.trackName
         artistNameLabel.text = item.artistName
         collectionNameLabel.text = item.collectionName
+        DispatchQueue.main.async {
+            if let url = URL(string: item.artworkUrl100!) {
+                if let data = try? Data(contentsOf: url) {
+                    self.trackImageView.image = UIImage(data: data)
+                }
+        }
+        }
     }
 }

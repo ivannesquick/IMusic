@@ -15,7 +15,6 @@ class SearchViewController: UITableViewController {
     private var timer: Timer?
     private var searchController = UISearchController(searchResultsController: nil)
     var tracks = [Track]()
-    private lazy var footerView = FooterView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
